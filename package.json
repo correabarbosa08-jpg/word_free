@@ -1,0 +1,11 @@
+{
+  "name": "wordfree",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Word Frequency: conta a frequência de palavras em um texto ou página web",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node --test"
+  }
+}

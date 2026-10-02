@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Frequency</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Word Frequency</h1>
+      <p class="subtitle">Conte quantas vezes cada palavra aparece em um texto ou em uma página web.</p>
+    </header>
+
+    <form id="analyze-form" class="card" novalidate>
+      <div class="field">
+        <div class="field-head">
+          <label for="text-input">Texto</label>
+          <span id="char-count" class="hint" aria-live="polite">0/2048</span>
+        </div>
+        <textarea id="text-input" maxlength="2048" rows="8"
+          placeholder="Digite ou cole seu texto aqui…"></textarea>
+      </div>
+
+      <div class="divider"><span>ou</span></div>
+
+      <div class="field">
+        <label for="url-input">URL de uma página web</label>
+        <input id="url-input" type="url" placeholder="https://example.com" autocomplete="url">
+        <p class="hint">Se preenchida, a URL tem prioridade sobre o texto.</p>
+      </div>
+
+      <label class="checkbox">
+        <input id="stopwords-input" type="checkbox">
+        Ignorar palavras comuns
+        <span class="hint">(de, a, que, the, and…)</span>
+      </label>
+
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <button id="translate-btn" type="submit">Translate</button>
+    </form>
+
+    <section id="results" hidden>
+      <p id="summary" class="summary"></p>
+
+      <div class="results-grid">
+        <div class="card">
+          <div class="card-head">
+            <h2>Mais frequentes</h2>
+            <div class="segmented" role="group" aria-label="Tipo de gráfico">
+              <button type="button" data-view="bars" aria-pressed="true">Barras</button>
+              <button type="button" data-view="bubbles" aria-pressed="false">Bolhas</button>
+            </div>
+          </div>
+          <div id="chart-bars" class="chart" aria-label="Gráfico de barras das 10 palavras mais frequentes"></div>
+          <div id="chart-bubbles" class="bubbles" hidden></div>
+        </div>
+
+        <div class="card">
+          <h2>Frequência</h2>
+          <div class="table-wrap">
+            <table id="freq-table">
+              <thead>
+                <tr><th>#</th><th>Palavra</th><th>Frequência</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
